@@ -19,13 +19,13 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="/" method="post">
       <img class="mb-4" src="images/drop_mail.jpg" alt=""  height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign up to my Newsletter!</h1>
       
-      <input type="text" class="form-control top" placeholder="First Name" required autofocus>
-      <input type="text" class="form-control middle" placeholder="Last Name" required>
-      <input type="email" id="inputEmail" class="form-control bottom" placeholder="Email address" required>
+      <input type="text" class="form-control top" name="fname" placeholder="First Name" required autofocus>
+      <input type="text" class="form-control middle" name="lname" placeholder="Last Name" required>
+      <input type="email" id="inputEmail" class="form-control bottom" name="email" placeholder="Email address" required>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
       <p class="mt-5 mb-3 text-muted">&copy; Nikolaos Ioannou 2020</p>
