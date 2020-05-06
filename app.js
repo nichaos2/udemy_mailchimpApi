@@ -88,6 +88,10 @@ app.post("/", function (req, res) {
 
 }); // end of post("/"")
 
+app.post("/failure", function(req,res){
+    res.redirect("/");
+});
+
 app.listen(3000, function () {
   console.log("App is listening at port 3000");
 });
