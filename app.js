@@ -64,10 +64,20 @@ app.post("/", function (req, res) {
 
   // 2.3 actual request
   const request_to_mailchimp = https.request(url, options, function (response) {
+      //console.log(response);
     // do smth when getting the response callback function (optional)
-    response.on("data", function (data) {
-      console.log(JSON.parse(data));
-    }); //- end of response.on
+    // response.on("data", function (data) {
+    //   console.log(JSON.parse(data));
+    // }); //- end of response.on
+    // response.on("statusCode", function (status) {
+    const status = response.statusCode;
+    console.log(status);
+    if (status === 200){
+        res.send('Sign up success  ' + status);
+    }else{
+        res.send('smth went wrong' + status);
+    }
+    //   }); //- end of response.on
   }); //- end of request to mailchimp
 
   // 3. send the request
