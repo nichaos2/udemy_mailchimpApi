@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const request = require("request"); // this is depreceated as of FEB 2020
 const https = require("https");
 
+const secureInfo = require('./.secureInfo.js')
+
 const app = express();
 
 // allow to serve static files with express
@@ -48,13 +50,13 @@ app.post("/", function (req, res) {
   // 2. create the request to mailchimp
   
   // 2.1 url -> see API for mailchimp endpoint : "https://usX.api.mailchimp.com/3.0/lists/{list_id}"
-  // and list id at the bottom
-  const X = "8"; // server of the mailchimp; is the last digit in the api key
-  const list_id = "3d65e130a6";
+  // and list id in your own secureInfo file
+  const X = secureInfo.server; // server of the mailchimp; is the last digit in the api key
+  const list_id = secureInfo.list_id;
   const url = "https://us" + X + ".api.mailchimp.com/3.0/lists/" + list_id;
   
   // 2.2 options -> method, authentication, more
-  const apiKey = "741486a230d400280bce9be28976c361-us8";
+  const apiKey = secureInfo.apiKey;
   const options = {
     method: "POST",
     auth: "username_can_be_whatever:" + apiKey,
@@ -79,9 +81,3 @@ app.post("/", function (req, res) {
 app.listen(3000, function () {
   console.log("App is listening at port 3000");
 });
-
-// API Key - Mailchimp
-// 741486a230d400280bce9be28976c361-us8
-
-// List ID - Mailchimp
-// 3d65e130a6
