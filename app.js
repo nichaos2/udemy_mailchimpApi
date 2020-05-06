@@ -73,9 +73,9 @@ app.post("/", function (req, res) {
     const status = response.statusCode;
     console.log(status);
     if (status === 200){
-        res.send('Sign up success  ' + status);
+        res.sendFile(__dirname + "/success.html");
     }else{
-        res.send('smth went wrong' + status);
+        res.sendFile(__dirname + "/failure.html");
     }
     //   }); //- end of response.on
   }); //- end of request to mailchimp
